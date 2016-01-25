@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<constant name="struts.objectFactory" value="spring" />
+<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+<constant name="struts.multipart.maxSize" value="1010241024"/>
+<include file="struts-default.xml" />
+	<package name="portal" extends="struts-default">
+		<action name="test">
+		    
+		    <result>index.jsp</result>
+		</action>
+	</package>
+	
+</struts>

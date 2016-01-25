@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- cmd输出  -->
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-d{yy-MM-dd HH:mm:ss} [%p:%l] %m%n" />
+		</layout>
+	</appender>
+
+	<!-- 文件输出 -->
+	<appender name="FILEOUT"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="./logs-picc/dogdisk.log" />
+		<param name="DatePattern" value="'.'yyyyMMdd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-d{yy-MM-dd HH:mm:ss} [%p:%l] %n %m%n" />
+		</layout>
+	</appender> 
+	<!-- ETL文件输出 -->
+	<appender name="ETLFILEOUT"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="./logs-picc/ETLTMP.log" />
+		<param name="DatePattern" value="'.'yyyyMMdd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-d{yy-MM-dd HH:mm:ss} [%p:%l] %n %m%n" />
+		</layout>
+	</appender>
+	 
+	
+	 
+	 
+	<!-- IBATIS输出 -->
+	<appender name="IBATIS_FILEOUT"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="./logs-picc/frameTmp_ibatis.log" />
+		<param name="DatePattern" value="'.'yyyyMMdd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-d{yy-MM-dd HH:mm:ss} [%p:%l] %n %m%n" />
+		</layout>
+	</appender>
+ 
+	
+	 
+	 <logger name="com.ibatis.common.logging.jakarta" additivity="true">
+		<level value="INFO" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+ 
+
+	
+	<logger name="org.apache.struts2" additivity="true">
+		<level value="INFO" />
+		<appender-ref ref="STDOUT" />
+	</logger>  
+ 
+	<root>
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT" />
+	</root>
+	<!---->
+</log4j:configuration>
